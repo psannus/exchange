@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run db:generate && npm run start",
+    "start": "node index.js",
+    "test": "node --test",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "redis": "^5.8.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.16.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ApiConfig {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  endpoint    String
+  api_key     String?
+  active      Boolean   @default(true)
+  delay       Int       @default(1800) // (seconds) max delay should be 30 minutes
+  config      Json? // provider-specific configuration
+  last_update DateTime?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  @@map("api_config")
+}

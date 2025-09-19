@@ -1,0 +1,8 @@
+/* minimal CSS overrides */
+.status-connected {
+  color: #4CAF50;
+}
+
+.status-disconnected {
+  color: #f44336;
+}
